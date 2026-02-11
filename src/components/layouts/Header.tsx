@@ -16,10 +16,10 @@ const Header = ({openSidebar, setOpenSidebar} : {openSidebar: boolean, setOpenSi
   const [openBoard, setOpenBoard] = useState<boolean>(false);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-20 bg-white dark:bg-gray-900 shadow-md flex items-center z-50 px-8">
-      <button 
+    <div className="fixed top-0 left-0 w-full h-20 bg-white dark:bg-gray-900 shadow-md flex items-center z-50 px-4">
+      <button
       onClick={() => setOpenSidebar(!openSidebar)}
-      className="mr-12 hover:bg-blue-100 dark:hover:bg-gray-700 rounded-full cursor-pointer p-3 hover:text-primary focus:bg-blue-100 dark:focus:bg-gray-700 focus:text-primary">
+      className="mr-8 hover:bg-blue-100 dark:hover:bg-gray-700 rounded-full cursor-pointer p-3 hover:text-primary focus:bg-blue-100 dark:focus:bg-gray-700 focus:text-primary">
         <List />
       </button>
       <Link href="/">

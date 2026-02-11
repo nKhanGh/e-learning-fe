@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layouts/Header";
-import { useState } from "react";
-import Sidebar from "@/components/layouts/Sidebar";
+import LayoutClient from "@/components/layouts/LayoutComponent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,15 +23,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [openSidebar, setOpenSidebar] = useState<boolean>(false);
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased mt-20 px-12`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased mt-20`}
       >
-        <Header openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
-        <Sidebar open={openSidebar} />
-        {children}
+        <LayoutClient>
+          {children}
+        </LayoutClient>
       </body>
     </html>
   );
