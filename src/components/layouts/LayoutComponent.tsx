@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Header from "@/components/layouts/Header";
 import Sidebar from "@/components/layouts/Sidebar";
+import Footer from "./Footer";
 
 const LayoutClient = ({
   children,
@@ -18,6 +19,7 @@ const LayoutClient = ({
       <div className={`transition-all duration-300 ${openSidebar ? 'ml-64' : 'ml-20'} p-6`}>
         {children}
       </div>
+      <Footer />
     </>
   );
 }
