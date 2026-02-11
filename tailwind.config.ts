@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    mode: 'jit', // ✅ Bật Just-In-Time mode
     content: [
         "./src/app/**/*.{js,ts,jsx,tsx}",
         "./src/components/**/*.{js,ts,jsx,tsx}",
