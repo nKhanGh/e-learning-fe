@@ -19,7 +19,7 @@ const LayoutClient = ({
       <div className={`transition-all duration-300 ${openSidebar ? 'ml-64' : 'ml-20'} p-6`}>
         {children}
       </div>
-      <Footer />
+      <Footer openSidebar={openSidebar} />
     </>
   );
 }

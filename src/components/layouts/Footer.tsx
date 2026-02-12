@@ -1,4 +1,3 @@
-// components/layout/Footer.tsx
 "use client";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,7 +15,7 @@ import {
   faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Footer = () => {
+const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -24,7 +23,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white dark:bg-surface border-t border-gray-200 dark:border-border">
+    <footer className={`bg-white dark:bg-surface border-t border-gray-200 dark:border-border transition-all duration-300 ${openSidebar ? 'ml-64' : 'ml-20'}`}>
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -41,7 +41,7 @@ const Sidebar = ({ open }: { open: boolean }) => {
 
   return (
     <div
-      className={`px-4 py-8 fixed top-20 left-0 ${open ? "w-64" : "w-20"} h-full bg-white dark:bg-gray-900 shadow-md flex flex-col`}
+      className={`px-4 py-8 fixed top-20 left-0 ${open ? "w-64" : "w-20"} transition-all duration-300 h-full bg-white dark:bg-gray-900 shadow-md flex flex-col`}
     >
       {sidebarItems.map((item) => (
         <Link
@@ -58,7 +58,7 @@ const Sidebar = ({ open }: { open: boolean }) => {
             />
           </i>
           {open && (
-            <div className="text-gray-800 dark:text-gray-200 font-medium flex items-center w-full group-hover:text-primary">
+            <div className="text-gray-800 dark:text-gray-200 font-medium flex items-center w-full group-hover:text-primary transition-all duration-300">
               {item.title}
               <FontAwesomeIcon
                 icon={faChevronRight}
