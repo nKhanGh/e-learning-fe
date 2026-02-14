@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Bell, ChevronDown, List, MessageCircleMore } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -14,6 +15,7 @@ import { useState } from "react";
 const Header = ({openSidebar, setOpenSidebar} : {openSidebar: boolean, setOpenSidebar: React.Dispatch<React.SetStateAction<boolean>>}) => {
   const [login, setLogin] = useState<boolean>(false);
   const [openBoard, setOpenBoard] = useState<boolean>(false);
+  const t = useTranslations('Common');
 
   return (
     <div className="fixed top-0 left-0 w-full h-20 bg-white dark:bg-gray-900 shadow-md flex items-center z-50 px-4">
@@ -71,7 +73,7 @@ const Header = ({openSidebar, setOpenSidebar} : {openSidebar: boolean, setOpenSi
                 <div className="w-full h-px bg-gray-300"></div>
                 <button className="block w-full text-left px-4 py-2 bg-gray-200 dark:bg-gray-600 rounded-2xl mt-2 hover:bg-gray-300 dark:hover:bg-gray-500 justify-center">
                   <FontAwesomeIcon icon={faCircleUser} className="mr-2" />
-                  Xem hồ sơ
+                  {t('viewProfile')}
                 </button>
               </div>
               <Link
@@ -79,7 +81,7 @@ const Header = ({openSidebar, setOpenSidebar} : {openSidebar: boolean, setOpenSi
                 className="w-full text-left px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-500 mb-2 rounded-sm flex items-center "
               >
                 <FontAwesomeIcon icon={faGear} className="mr-4" />
-                Cài đặt
+                {t('settings')}
                 <FontAwesomeIcon
                   icon={faChevronRight}
                   className="mr-2 ml-auto"
@@ -87,7 +89,7 @@ const Header = ({openSidebar, setOpenSidebar} : {openSidebar: boolean, setOpenSi
               </Link>
               <button className="w-full text-left px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-500 rounded-sm flex items-center justify-start">
                 <FontAwesomeIcon icon={faRightFromBracket} className="mr-4" />
-                Đăng xuất
+                {t('logout')}
                 <FontAwesomeIcon
                   icon={faChevronRight}
                   className="mr-2 ml-auto"
@@ -99,13 +101,13 @@ const Header = ({openSidebar, setOpenSidebar} : {openSidebar: boolean, setOpenSi
       ) : (
         <>
           <button className="bg-primary w-36 h-10 text-white rounded-2xl cursor-pointer mr-4 hover:bg-blue-600 justify-center">
-            Đăng ký
+            {t('signup')}
           </button>
           <button
             className="bg-gray-300 w-36 h-10 text-primary border-3 hover:border-blue-600 hover:text-white box-border rounded-2xl cursor-pointer mr-4 hover:bg-blue-600 justify-center"
             onClick={() => setLogin(!login)}
           >
-            Đăng nhập
+            {t('login')}
           </button>
         </>
       )}

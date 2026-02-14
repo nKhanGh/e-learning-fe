@@ -14,12 +14,14 @@ import {
   faLocationDot,
   faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
+import { useTranslations } from "next-intl";
 
 const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
+  
+  const t = useTranslations('Footer');
   const currentYear = new Date().getFullYear();
 
   return (
@@ -38,8 +40,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
               </span>
             </div>
             <p className="text-sm text-gray-600 dark:text-muted">
-              Building innovative solutions for a better tomorrow. Your trusted
-              partner in digital transformation.
+              {t('description')}
             </p>
             <div className="flex gap-3">
               <a
@@ -101,7 +102,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   href="/about"
                   className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  About Us
+                  {t('aboutUs')}
                 </Link>
               </li>
               <li>
@@ -109,7 +110,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   href="/services"
                   className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  Services
+                  {t('services')}
                 </Link>
               </li>
               <li>
@@ -117,7 +118,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   href="/products"
                   className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  Products
+                  {t('products')}
                 </Link>
               </li>
               <li>
@@ -125,7 +126,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   href="/careers"
                   className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  Careers
+                  {t('careers')}
                 </Link>
               </li>
               <li>
@@ -133,7 +134,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   href="/blog"
                   className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  Blog
+                  {t('blog')}
                 </Link>
               </li>
             </ul>
@@ -142,7 +143,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
           {/* Support */}
           <div>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-text uppercase tracking-wider mb-4">
-              Support
+              {t('support')}
             </h3>
             <ul className="space-y-3">
               <li>
@@ -150,7 +151,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   href="/help"
                   className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  Help Center
+                  {t('helpCenter')}
                 </Link>
               </li>
               <li>
@@ -158,7 +159,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   href="/contact"
                   className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  Contact Us
+                  {/* {t('contactUs')} */}
                 </Link>
               </li>
               <li>
@@ -166,7 +167,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   href="/faq"
                   className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  FAQ
+                  {t('faq')}
                 </Link>
               </li>
               <li>
@@ -174,7 +175,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   href="/privacy"
                   className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  Privacy Policy
+                  {t('privacyPolicy')}
                 </Link>
               </li>
               <li>
@@ -182,7 +183,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   href="/terms"
                   className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  Terms of Service
+                  {t('termsOfService')}
                 </Link>
               </li>
             </ul>
@@ -191,7 +192,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
           {/* Contact Info */}
           <div>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-text uppercase tracking-wider mb-4">
-              Get in Touch
+              {t('getInTouch')}
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
@@ -200,9 +201,9 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   className="w-4 h-4 text-primary mt-1 flex-shrink-0"
                 />
                 <span className="text-sm text-gray-600 dark:text-muted">
-                  123 Business Street, Suite 100
+                  {t('district')}
                   <br />
-                  New York, NY 10001
+                  {t('province')}
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -214,7 +215,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   href="tel:+1234567890"
                   className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  +1 (234) 567-890
+                  {t('phone')}
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -226,7 +227,7 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
                   href="mailto:info@yourcompany.com"
                   className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  info@yourcompany.com
+                  {t('email')}
                 </a>
               </li>
             </ul>
@@ -234,16 +235,16 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
             {/* Newsletter */}
             <div className="mt-6">
               <h4 className="text-sm font-semibold text-gray-900 dark:text-text mb-2">
-                Newsletter
+                {t('newsletter')}
               </h4>
               <div className="flex gap-2">
                 <input
                   type="email"
-                  placeholder="Your email"
+                  placeholder={t('yourEmail')}
                   className="flex-1 px-3 py-2 text-sm bg-gray-100 dark:bg-border border border-gray-200 dark:border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 dark:text-text placeholder-gray-500 dark:placeholder-muted"
                 />
                 <button className="px-4 py-2 bg-primary hover:bg-primary/90 text-white text-sm font-medium rounded-lg transition-colors">
-                  Subscribe
+                  {t('subscribe')}
                 </button>
               </div>
             </div>
@@ -256,26 +257,26 @@ const Footer = ({ openSidebar }: { openSidebar: boolean }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-600 dark:text-muted text-center sm:text-left">
-              &copy; {currentYear} Your Company. All rights reserved.
+              &copy; {currentYear} Learnio. {t('rightsReserved')}
             </p>
             <div className="flex items-center gap-6">
               <Link
                 href="/privacy"
                 className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
               >
-                Privacy
+                {t('privacy')}
               </Link>
               <Link
                 href="/terms"
                 className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
               >
-                Terms
+                {t('terms')}
               </Link>
               <Link
                 href="/cookies"
                 className="text-sm text-gray-600 dark:text-muted hover:text-primary dark:hover:text-primary transition-colors"
               >
-                Cookies
+                {t('cookies')}
               </Link>
             </div>
           </div>

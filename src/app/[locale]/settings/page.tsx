@@ -1,11 +1,14 @@
 "use client";
 import { faCircleHalfStroke, faLanguage, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 const SettingPage = () => {
   const [openTheme, setOpenTheme] = useState<boolean>(true);
   const [theme, setTheme] = useState<string>("light");
+  const t = useTranslations('Settings');
+  const locale = useLocale();
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -13,6 +16,9 @@ const SettingPage = () => {
       setTheme(savedTheme);
       document.documentElement.classList.toggle("dark", savedTheme === "dark");
     }
+    console.log("Current locale:", locale);
+    console.log('📦 Settings.title:', t('title'));
+    console.log('📦 Has translation?:', t.has('title'));
   }, []);
 
   const toggleTheme = () => {
@@ -26,10 +32,10 @@ const SettingPage = () => {
     <div className="min-h-screen ">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-            Settings
+            {t('title')}
           </h1>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-            Manage your preferences and account settings
+            {t('subtitle')}
           </p>
         </div>
 
@@ -49,7 +55,7 @@ const SettingPage = () => {
                   icon={faCircleHalfStroke}
                   className="w-5 h-5"
                 />
-                <span>Appearance</span>
+                <span>{t('appearance')}</span>
               </button>
 
               <button
@@ -64,7 +70,7 @@ const SettingPage = () => {
                   icon={faLanguage} 
                   className="w-5 h-5" 
                 />
-                <span>Language</span>
+                <span>{t('language')}</span>
               </button>
             </div>
           </nav>
@@ -75,10 +81,10 @@ const SettingPage = () => {
               <div className="space-y-6">
                 <div>
                   <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                    Appearance
+                    {t('appearance')}
                   </h2>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Customize how the interface looks
+                    {t('appearanceDescription')}
                   </p>
                 </div>
 
@@ -86,11 +92,11 @@ const SettingPage = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="text-base font-medium text-gray-900 dark:text-white">
-                        Theme Mode
+                        {t('themeMode')}
                       </h3>
                       <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                        Currently using{" "}
-                        <span className="font-medium capitalize">{theme}</span> mode
+                        {t('currentlyUsing')}{" "}
+                        <span className="font-medium capitalize">{theme}</span> {t('mode')}
                       </p>
                     </div>
 
@@ -123,10 +129,10 @@ const SettingPage = () => {
                         <FontAwesomeIcon icon={faSun} className="text-yellow-300" />
                         <div>
                           <div className="font-medium text-gray-900 dark:text-white">
-                            Light
+                            {t('lightMode')}
                           </div>
                           <div className="text-xs text-gray-500 dark:text-gray-400">
-                            Bright & clear
+                            {t('lightModeDescription')}
                           </div>
                         </div>
                       </div>
@@ -147,10 +153,10 @@ const SettingPage = () => {
                         <FontAwesomeIcon icon={faMoon} className="text-yellow-300" />
                         <div>
                           <div className="font-medium text-gray-900 dark:text-white">
-                            Dark
+                            {t('darkMode')}
                           </div>
                           <div className="text-xs text-gray-500 dark:text-gray-400">
-                            Easy on eyes
+                            {t('darkModeDescription')}
                           </div>
                         </div>
                       </div>
@@ -163,10 +169,10 @@ const SettingPage = () => {
               <div className="space-y-6">
                 <div>
                   <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                    Language
+                    {t('language')}
                   </h2>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Select your preferred language
+                    {t('selectLanguage')}
                   </p>
                 </div>
 

@@ -10,34 +10,37 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { div } from "framer-motion/m";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const sidebarItems = [
+const Sidebar = ({ open }: { open: boolean }) => {
+  const pathname = usePathname();
+  const locale = useLocale();
+  const t = useTranslations('Common');
+
+  const sidebarItems = [
   {
-    title: "Home",
+    title: t('home'),
     icon: faHome,
     link: "/",
   },
   {
-    title: "Dashboard",
+    title: t('dashboard'),
     icon: faChartBar,
     link: "/dashboard",
   },
   {
-    title: "Courses",
+    title: t('courses'),
     icon: faBook,
     link: "/courses",
   },
   {
-    title: "Profile",
+    title: t('profile'),
     icon: faUser,
     link: "/profile",
   },
 ];
-
-const Sidebar = ({ open }: { open: boolean }) => {
-  const pathname = usePathname();
 
   return (
     <div
@@ -46,7 +49,7 @@ const Sidebar = ({ open }: { open: boolean }) => {
       {sidebarItems.map((item) => (
         <Link
           key={item.title}
-          href={item.link}
+          href={`/${locale}${item.link}`}
           className={`flex items-center gap-4 mb-4 p-3 rounded-lg cursor-pointer group
                 ${pathname === item.link ? "bg-blue-50 dark:bg-gray-700 text-primary" : "text-gray-600 dark:text-gray-300"}
                 `}
@@ -68,7 +71,7 @@ const Sidebar = ({ open }: { open: boolean }) => {
           )}
         </Link>
       ))}
-      <Link href={"/settings"} className="mt-auto h-12">
+      <Link href={`/${locale}/settings`} className="mt-auto h-12">
         <div
           className={`flex items-center gap-4 mt-auto p-3 rounded-lg cursor-pointer group
                 ${pathname === "/settings" ? "bg-blue-50 dark:bg-gray-700 text-primary" : "text-gray-600 dark:text-gray-300"}
@@ -82,7 +85,7 @@ const Sidebar = ({ open }: { open: boolean }) => {
           </i>
           {open && (
             <div className="text-gray-800 dark:text-gray-200 font-medium flex items-center w-full group-hover:text-primary">
-              Settings
+              {t('settings')}
               <FontAwesomeIcon
                 icon={faChevronRight}
                 className="text-gray-600 dark:text-gray-300 ml-auto transition-transform group-hover:translate-x-1 group-hover:text-primary"
@@ -100,7 +103,7 @@ const Sidebar = ({ open }: { open: boolean }) => {
         </i>
         {open && (
           <div className="text-gray-800 dark:text-gray-200 font-medium flex items-center w-full group-hover:text-primary">
-            Logout
+            {t('logout')}
           </div>
         )}
       </button>
